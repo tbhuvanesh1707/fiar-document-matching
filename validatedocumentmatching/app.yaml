@@ -1,0 +1,26 @@
+command:
+  - streamlit
+  - run
+  - main.py
+  - --server.port=8000
+  - --server.address=0.0.0.0
+  - --server.headless=true
+  - --server.maxUploadSize=20
+
+env:
+  - name: DATABRICKS_WAREHOUSE_ID
+    valueFrom: sql-warehouse
+  - name: FIAR_SOURCE_TABLE
+    value: workspace.default.fiar_ai_link_review
+  - name: FIAR_DECISIONS_TABLE
+    value: workspace.default.fiar_review_decisions
+  - name: FIAR_DOCUMENT_PREFIX
+    value: /Volumes/workspace/default/fiar-docs
+  - name: FIAR_DEMO_MODE
+    value: 'false'
+  - name: FIAR_LABEL_SCHEMA
+    value: workspace.default
+  - name: FIAR_INVOICE_TABLE
+    value: workspace.default.payables_vendor_invoices
+  - name: FIAR_DISBURSEMENT_TABLE
+    value: workspace.default.genledger_disbursements
